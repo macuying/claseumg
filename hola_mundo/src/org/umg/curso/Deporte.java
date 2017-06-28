@@ -9,40 +9,34 @@ import java.io.InputStreamReader;
  */
 public class Deporte {
 
-        public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
 
-            String[] deportes = {"Futbol","Basquetbol","Karate","Natacion", "Ciclismo", "Triatrol", "Baseball"};
+        ClsBase e = new ClsBase();
+        String[] deportes = {"Futbol", "Basquetbol", "Karate", "Natacion", "Ciclismo", "Triatrol", "Baseball"};
+        String respuesta[] = new String[7];
 
-            // Print all the array elements
-            for (int i = 0; i < deportes.length; i++) {
-                System.out.println(deportes[i] + " ");
-            }
-
+        // Print all the array elements
+        for (int i = 0; i < deportes.length; i++) {
+            int a=0;
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            for (int i = 0; i < deportes.length; i++) {
-                System.out.println("El deporte: " + deportes[i] + "utiliza balon?");
+            System.out.println("Nombre del Especialista del deporte " + deportes[i] + ":");
+            e.setNombre(reader.readLine());
+            System.out.println("El deporte " + deportes[i] + " utiliza balon?");
+            e.setRespuesta(reader.readLine());
 
+            if (e.getRespuesta().toString().equals("si")){
+                a=a+1;
+                respuesta[i] = deportes[i];
             }
 
-            // Summing all elements
-            double total = 0;
-            for (int i = 0; i < deportes.length; i++) {
-                total += deportes[i];
-            }
-            System.out.println("Total is " + total);
+            //System.out.println("Segun el especialista " + e.getNombre() + " el deporte " + deportes[i] + " " + e.getRespuesta() + " utiliza balon.");
+        }
 
-            // Finding the largest element
-            double max = deportes[0];
-            for (int i = 1; i < deportes.length; i++) {
-                if (deportes[i] > max) max = deportes[i];
-            }
-            System.out.println("Max is " + max);
-
+        for (int j = 0; j < respuesta.length; j++) {
+            System.out.println(respuesta[j]);
 
         }
+
+
     }
-
-
-
-
 }
